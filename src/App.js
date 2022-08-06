@@ -1,24 +1,23 @@
-import logo from './logo.svg';
+//--------------Hooks-------------
+import { useState, useEffect } from 'react';
+
+//--------------Styles-------------
 import './App.css';
 
+//--------------Components---------------
+import CardList from './components/cardLists/CardList';
+
+
+//--------------Services---------------
+import axios from 'axios'
+
 function App() {
+
+
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CardList />
   );
 }
 
