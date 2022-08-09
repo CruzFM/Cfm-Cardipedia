@@ -5,10 +5,11 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 export default function CardList(){
-
+    
+    //------The cards displayed by default due to the API call
     const [cards, setCards ] = useState([]);
 
-    //To avoid more api calls, the searches will be stored in this state.
+    //To avoid more API calls, the queries will be stored in this state.
     const [searchedCards, setSearchedCards] = useState([]);
 
     //To make a loader with a button
@@ -25,13 +26,15 @@ export default function CardList(){
     
     },[]);
 
+
+    //---------------To search for NAMES --------------
     const handleClick = (e)=> {
-        e.preventDefault()
-        let cardName = e.target.cardTest.value;
+        e.preventDefault();
+        let cardName = e.target.name.value;
     
-        //create a regular expression for the .match search
-        //the 'gi' means that it searches all the matches and it's case insensitive
-        let serchRegEx = new RegExp(cardName, 'gi')
+        //creates a regular expression for the .match search
+        //the 'gi' means that it searches all the matches and that it's case insensitive
+        let serchRegEx = new RegExp(cardName, 'gi');
     
         //searches for a name coincidence with the given parameter.
         let newCards = cards.filter( (card) =>  card.name.match(serchRegEx) )
@@ -40,11 +43,14 @@ export default function CardList(){
         console.log(newCards);
     };
 
+    //---------------To reset both search and value --------------
+
     const handleReset = () => {
         setSearchedCards([]);
         setLoadValue(10);
     }
 
+    //---------------To load more content (10 cards) --------------
     const handleLoad = () =>{
         setLoadValue(prevLoadValue => prevLoadValue + 10);
     }
@@ -57,18 +63,55 @@ export default function CardList(){
         }
     }
 
+    //---------------To search for ARCHETYPES --------------
+
+    let archetypesForForms = [];
+    cards.forEach( card =>{
+        if(!archetypesForForms.includes(card.archetype)){
+          archetypesForForms.push(card.archetype);
+        }
+    });
+
+    const handleClickArchetype = (e) => {
+      e.preventDefault();
+
+      let archeValue = e.target.archetypes.value;
+
+      let newCards = cards.filter((card) => card.archetype === archeValue);
+
+      setSearchedCards(newCards);
+      setLoadValue(10);
+
+      console.log(newCards);
+    };
+
     return (
       <>
         <div className="App">
           <h2>Hola Fer</h2>
           <form onSubmit={handleClick}>
             <label>
-              <input type="text" name="cardTest" />
+              <input type="text" name="name" />
             </label>
             <button type="submit">buscar por nombre</button>
             <button type="button" onClick={handleReset}>
               Reset Cards
             </button>
+          </form>
+          <form onSubmit={handleClickArchetype}>
+            <label>
+              <select id="archetype" name="archetypes">
+                {
+                  archetypesForForms.map( arche =>{
+                    return(
+                      <option value={ `${arche}` }>{arche}</option>
+                    )
+                  })
+
+                }
+              </select>
+            </label>
+            <button type="submit">buscar por arquetipo</button>
           </form>
         </div>
 
@@ -111,3 +154,37 @@ export default function CardList(){
       </>
     );
 };
+
+
+/*
+Effect Monster
+Flip Effect Monster
+Fusion Monster
+Gemini Monster
+Link Monster
+Normal Monster
+Normal Tuner Monster
+Pendulum Effect Fusion Monster
+Pendulum Effect Monster
+Pendulum Flip Effect Monster
+Pendulum Flip Effect Monster
+Pendulum Normal Monster
+Pendulum Effect Ritual Monster
+Pendulum Tuner Effect Monster
+Ritual Effect Monster
+Ritual Monster
+Skill Card
+Spell Card
+Spirit Monster
+Staple
+Synchro Monster
+Synchro Pendulum Effect Monster
+Synchro Tuner Monster
+Token
+Toon Monster
+Trap Card
+Tuner Monster
+Union Effect Monster
+XYZ Monster
+XYZ Pendulum Effect Monster
+*/
