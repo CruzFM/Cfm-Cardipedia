@@ -32,11 +32,11 @@ export default function CardList(){
         e.preventDefault();
         let cardName = e.target.name.value;
     
-        //creates a regular expression for the .match search
-        //the 'gi' means that it searches all the matches and that it's case insensitive
+        //--creates a regular expression for the .match search
+        //--the 'gi' means that it searches all the matches and that it's case insensitive
         let serchRegEx = new RegExp(cardName, 'gi');
     
-        //searches for a name coincidence with the given parameter.
+        //--searches for a name coincidence with the given parameter.
         let newCards = cards.filter( (card) =>  card.name.match(serchRegEx) )
         setSearchedCards(newCards);
         setLoadValue(10);
@@ -65,6 +65,7 @@ export default function CardList(){
 
     //---------------To search for ARCHETYPES --------------
 
+    //---For the <option> tag in the Archetypes form
     let archetypesForForms = [];
     cards.forEach( card =>{
         if(!archetypesForForms.includes(card.archetype)){
@@ -72,6 +73,7 @@ export default function CardList(){
         }
     });
 
+    //---For the handler submit on the Archetypes form
     const handleClickArchetype = (e) => {
       e.preventDefault();
 
@@ -85,10 +87,22 @@ export default function CardList(){
       console.log(newCards);
     };
 
+    //---------------To search for MONSTER TYPE --------------
+
+
+    let typesForForms = [];
+    cards.forEach( card =>{
+        if(!typesForForms.includes(card.type) ){
+          typesForForms.push(card.type);
+        }
+    });
+
+
     return (
       <>
         <div className="App">
           <h2>Hola Fer</h2>
+          {/* Search by Name form*/}
           <form onSubmit={handleClick}>
             <label>
               <input type="text" name="name" />
@@ -98,6 +112,7 @@ export default function CardList(){
               Reset Cards
             </button>
           </form>
+          {/* Search by Archetype form*/}
           <form onSubmit={handleClickArchetype}>
             <label>
               <select id="archetype" name="archetypes">
@@ -112,6 +127,21 @@ export default function CardList(){
               </select>
             </label>
             <button type="submit">buscar por arquetipo</button>
+          </form>
+          {/* Search by Card Type form*/}
+          <form>
+            <label>
+              <select id='type' name='type'>
+                {
+                  typesForForms.map( type =>{
+                    return(
+                      <option value={ `${type}` }>{type}</option>
+                    )
+                  })
+                }
+              </select>
+            </label>
+            <button>Search by type</button>
           </form>
         </div>
 
