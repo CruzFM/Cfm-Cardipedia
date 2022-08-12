@@ -1,8 +1,10 @@
 //Hooks
 import { useState, useEffect } from 'react';
 
-//Services
+
+//Libraries
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default function CardList(){
     
@@ -87,7 +89,7 @@ export default function CardList(){
       console.log(newCards);
     };
 
-    //---------------To search for MONSTER TYPE --------------
+    //---------------To search for CARD TYPE --------------
 
 
     let typesForForms = [];
@@ -96,6 +98,22 @@ export default function CardList(){
           typesForForms.push(card.type);
         }
     });
+
+
+    const handleClickCardType = (e) => {
+      e.preventDefault();
+
+      let cardTypeValue = e.target.type.value;
+
+      let newCards = cards.filter((card) => card.type === cardTypeValue);
+
+      setSearchedCards(newCards);
+      setLoadValue(10);
+
+      console.log(newCards);
+    };
+    
+  
 
 
     return (
@@ -107,7 +125,7 @@ export default function CardList(){
             <label>
               <input type="text" name="name" />
             </label>
-            <button type="submit">buscar por nombre</button>
+            <button type="submit">Search by name</button>
             <button type="button" onClick={handleReset}>
               Reset Cards
             </button>
@@ -126,10 +144,10 @@ export default function CardList(){
                 }
               </select>
             </label>
-            <button type="submit">buscar por arquetipo</button>
+            <button type="submit">Search by archetype</button>
           </form>
           {/* Search by Card Type form*/}
-          <form>
+          <form onSubmit={handleClickCardType}>
             <label>
               <select id='type' name='type'>
                 {
@@ -156,7 +174,7 @@ export default function CardList(){
                     <p>{card.desc}</p>
                   </div>
                   <div>
-                    <button>clickeame, gato</button>
+                    <button><Link to={`/details/${card.id}`}>Details</Link></button>
                   </div>
                 </div>
               );
@@ -172,13 +190,14 @@ export default function CardList(){
                     <p>{card.desc}</p>
                   </div>
                   <div>
-                    <button>clickeame, gato</button>
+                    <button><Link to={`/details/${card.id}`}>Details</Link></button>
                   </div>
                 </div>
               );
-            })}
+            })
+          }
 
-            {loaderButton()}
+          {loaderButton()}
 
         </div>
       </>
