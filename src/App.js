@@ -14,8 +14,8 @@ import Details from './components/cardDetails/Details';
 
 
 //--------------Services---------------
-import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar/Navbar';
 
 
 function App() {
@@ -25,6 +25,8 @@ function App() {
 
   return (
     <>
+      <Navbar />
+
       <Routes>
 
         <Route exact path='/' element={ <Home />} />
@@ -33,7 +35,6 @@ function App() {
         <Route path='/details/:id' element={<Details />} />
 
       </Routes>
-
     </>
 
   );

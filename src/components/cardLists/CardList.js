@@ -1,10 +1,12 @@
 //Hooks
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 
 
 //Libraries
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import DeckContext from '../../context/DeckContext';
+import Card from '../Card/Card';
 
 export default function CardList(){
     
@@ -22,7 +24,7 @@ export default function CardList(){
         axios.get(endPoint)
         .then(res => {
           let apiData = res.data.data
-          console.log(apiData)
+          // console.log(apiData)
           setCards(apiData) 
         });
     
@@ -42,7 +44,7 @@ export default function CardList(){
         let newCards = cards.filter( (card) =>  card.name.match(serchRegEx) )
         setSearchedCards(newCards);
         setLoadValue(10);
-        console.log(newCards);
+        // console.log(newCards);
     };
 
     //---------------To reset both search and value --------------
@@ -86,7 +88,7 @@ export default function CardList(){
       setSearchedCards(newCards);
       setLoadValue(10);
 
-      console.log(newCards);
+      // console.log(newCards);
     };
 
     //---------------To search for CARD TYPE --------------
@@ -114,12 +116,15 @@ export default function CardList(){
     };
     
   
+    //---------------Push card to Deck--------------
 
+    const { deck, handleAddToDeck } = useContext( DeckContext)
 
     return (
       <>
         <div className="App">
           <h2>Hola Fer</h2>
+
           {/* Search by Name form*/}
           <form onSubmit={handleClick}>
             <label>
@@ -130,6 +135,7 @@ export default function CardList(){
               Reset Cards
             </button>
           </form>
+
           {/* Search by Archetype form*/}
           <form onSubmit={handleClickArchetype}>
             <label>
@@ -146,6 +152,7 @@ export default function CardList(){
             </label>
             <button type="submit">Search by archetype</button>
           </form>
+
           {/* Search by Card Type form*/}
           <form onSubmit={handleClickCardType}>
             <label>
@@ -161,38 +168,21 @@ export default function CardList(){
             </label>
             <button>Search by type</button>
           </form>
+
         </div>
 
         <div className="containerCards">
           {searchedCards.length > 0 &&
             searchedCards.slice(0, loadValue).map((card) => {
               return (
-                <div className="card">
-                  <h4>{card.name}</h4>
-                  <img src={`${card.card_images[0].image_url}`} alt="Card" />
-                  <div>
-                    <p>{card.desc}</p>
-                  </div>
-                  <div>
-                    <button><Link to={`/details/${card.id}`}>Details</Link></button>
-                  </div>
-                </div>
+                <Card card={card}/>
               );
             })}
 
           {searchedCards.length === 0 &&
             cards.slice(0, loadValue).map((card) => {
               return (
-                <div className="card">
-                  <h4>{card.name}</h4>
-                  <img src={`${card.card_images[0].image_url}`} alt="Card" />
-                  <div>
-                    <p>{card.desc}</p>
-                  </div>
-                  <div>
-                    <button><Link to={`/details/${card.id}`}>Details</Link></button>
-                  </div>
-                </div>
+                <Card card={card}/>
               );
             })
           }
@@ -203,37 +193,3 @@ export default function CardList(){
       </>
     );
 };
-
-
-/*
-Effect Monster
-Flip Effect Monster
-Fusion Monster
-Gemini Monster
-Link Monster
-Normal Monster
-Normal Tuner Monster
-Pendulum Effect Fusion Monster
-Pendulum Effect Monster
-Pendulum Flip Effect Monster
-Pendulum Flip Effect Monster
-Pendulum Normal Monster
-Pendulum Effect Ritual Monster
-Pendulum Tuner Effect Monster
-Ritual Effect Monster
-Ritual Monster
-Skill Card
-Spell Card
-Spirit Monster
-Staple
-Synchro Monster
-Synchro Pendulum Effect Monster
-Synchro Tuner Monster
-Token
-Toon Monster
-Trap Card
-Tuner Monster
-Union Effect Monster
-XYZ Monster
-XYZ Pendulum Effect Monster
-*/

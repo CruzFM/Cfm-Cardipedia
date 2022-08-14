@@ -44,35 +44,17 @@ select{
   font: inherit;
 }
 
+li{
+  list-style-type: none;
+}
 
+a{
+  text-decoration: none;
+  color: inherit;
+}
 /*-------------------*/
 /* Custom Properties */
 /*-------------------*/
-
-/* :root{
-  --clr-dark: 230 35% 7%;
-  --clr-light: 231 77% 90%;
-  --clr-white: 0 0% 100%;
-
-    font-sizes 
-
-  --fs-900: 9.375rem;
-  --fs-800: 6.25rem;
-  --fs-700: 3.5rem;
-  --fs-600: 2rem;
-  --fs-500: 1.75rem;
-  --fs-400: 1.125rem;
-  --fs-300: 1rem;
-  --fs-200: 0.875rem;
-    
-   font-families 
-  
-  --ff-serif: "Bellefair", serif;
-  --ff-sans-cond: "Barlow Condensed", sans-serif;
-  --ff-sans-normal: "Barlow", sans-serif;
-
-  
-} */
 
 
 /* remove animations for people who turned them off */
@@ -169,4 +151,26 @@ select{
 
 .loaderButton{
   width: 100%;
+}
+
+header{
+  box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.59);
+}
+
+.navbar{
+  margin: 0 auto;
+  width: 90%;
+  align-items: center;
+}
+.navbar > h1 {
+  margin-right: auto;
+}
+
+.navbar > ul{
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar > ul > li{
+  padding: 1rem;
 }

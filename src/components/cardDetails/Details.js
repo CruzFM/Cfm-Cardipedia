@@ -12,19 +12,19 @@ export default function Details(){
 
     let { id } = useParams();
 
-    console.log(id);
+    // console.log(id);
 
     useEffect( ()=>{
         const endPoint = `https://db.ygoprodeck.com/api/v7/cardinfo.php?id=${id}`;
         axios.get(endPoint)
             .then(res =>{
                 const [apiData] = res.data.data;
-                console.log(apiData);
+                // console.log(apiData);
                 setCard(apiData);
             })
     }, [])
 
-    console.log(card);
+    // console.log(card);
 
     return(
         <div>
@@ -40,9 +40,9 @@ export default function Details(){
                     <h2>{card.name}</h2>
                     
                     <ul>
-                        <li>{card.type}</li>
-                        <li>{card.race}</li>
-                        <li>{card.archetype}</li>
+                        <li>Card type: {card.type}</li>
+                        <li>Race: {card.race}</li>
+                        <li>Archetype: {card.archetype}</li>
                     </ul>
                     <p>{card.desc}</p>
                 </div>  
