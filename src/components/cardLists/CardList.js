@@ -141,7 +141,7 @@ export default function CardList(){
             <label>
               <select id="archetype" name="archetypes">
                 {
-                  archetypesForForms.map( arche =>{
+                  archetypesForForms.sort().map( arche =>{
                     return(
                       <option value={ `${arche}` }>{arche}</option>
                     )
@@ -158,7 +158,7 @@ export default function CardList(){
             <label>
               <select id='type' name='type'>
                 {
-                  typesForForms.map( type =>{
+                  typesForForms.sort().map( type =>{
                     return(
                       <option value={ `${type}` }>{type}</option>
                     )
