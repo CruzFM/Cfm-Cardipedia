@@ -173,16 +173,16 @@ export default function CardList(){
 
         <div className="containerCards">
           {searchedCards.length > 0 &&
-            searchedCards.slice(0, loadValue).map((card) => {
+            searchedCards.slice(0, loadValue).map((card, idx) => {
               return (
-                <Card card={card}/>
+                <Card card={card} idx={idx}/>
               );
             })}
 
           {searchedCards.length === 0 &&
-            cards.slice(0, loadValue).map((card) => {
+            cards.slice(0, loadValue).map((card, idx) => {
               return (
-                <Card card={card}/>
+                <Card card={card} idx={idx}/>
               );
             })
           }

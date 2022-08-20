@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import Card from "../Card/Card";
 
 export default function Deck() {
-  const { deck } = useContext(DeckContext);
+  const { deck, deleteFromDeck } = useContext(DeckContext);
   return (
     <div>
       <h2>I'm deck</h2>
       <div className="containerCards">
-        {deck.map((card) => {
+        {deck.map((card, idx) => {
           return (
-            <div className="card">
+            <div className="card" key={idx}>
               <h4>{card.name}</h4>
               <img src={`${card.card_images[0].image_url}`} alt="Card" />
               <div>
@@ -21,7 +21,7 @@ export default function Deck() {
                 <button>
                   <Link to={`/details/${card.id}`}>Details</Link>
                 </button>
-                <button onClick={() => console.log("we should delete this!")}>
+                <button onClick={() => deleteFromDeck(deck, card)}>
                   Delete me!
                 </button>
               </div>

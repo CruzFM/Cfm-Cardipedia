@@ -19,9 +19,21 @@ export function DeckProvider ( { children } ) {
         setDeck(prevDeck => [...prevDeck, cardToAdd])
     }
 
+    const deleteFromDeck = (array, toDelete) =>{
+        let cardIndex = array.indexOf(toDelete)
+        // console.log(cardIndex)
+        let toConcatOne = array.slice(0, cardIndex)
+        let toConcatTwo = array.slice(cardIndex + 1)
+        let newDeck = toConcatOne.concat(toConcatTwo)
+        // console.log(newDeck)
+        setDeck(newDeck)
+        // console.log(deck)
+
+      }
+
 
     return(
-        <DeckContext.Provider value={ {deck, handleAddToDeck} } >
+        <DeckContext.Provider value={ {deck, handleAddToDeck, deleteFromDeck} } >
             { children }
         </DeckContext.Provider>
     );
