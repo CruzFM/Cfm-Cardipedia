@@ -12,12 +12,9 @@ export default function Deck() {
         {deck.map((card, idx) => {
           return (
             <div className="card" key={idx}>
-              <h4>{card.name}</h4>
               <img src={`${card.card_images[0].image_url}`} alt="Card" />
               <div>
-                <p>{card.desc}</p>
-              </div>
-              <div>
+                <h4>{card.name}</h4>
                 <button>
                   <Link to={`/details/${card.id}`}>Details</Link>
                 </button>

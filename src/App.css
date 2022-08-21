@@ -1,4 +1,10 @@
 /*-------------------*/
+/*       IMPORTS      */
+/*-------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;900&display=swap');
+
+/*-------------------*/
 /*       RESET       */
 /*-------------------*/
 
@@ -52,6 +58,13 @@ a{
   text-decoration: none;
   color: inherit;
 }
+
+/* Set up font */
+
+body{
+  font-family: 'Mulish', sans-serif;
+}
+
 /*-------------------*/
 /* Custom Properties */
 /*-------------------*/
@@ -142,6 +155,10 @@ a{
   padding: 1.2rem;
   border-radius: 12px;
   margin: 0.2rem;
+}
+
+.card > img{
+  margin-bottom: 0.5rem;
 }
 
 .containerCards{
