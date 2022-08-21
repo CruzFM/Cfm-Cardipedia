@@ -122,24 +122,22 @@ export default function CardList(){
 
     return (
       <>
-        <div className="App">
-          <h2>Hola Fer</h2>
+        <div className="App flex-column justify-center align-items-center to-center">
+          <h2>Card pool</h2>
 
           {/* Search by Name form*/}
           <form onSubmit={handleClick}>
             <label>
-              <input type="text" name="name" />
+              <input type="text" name="name" placeholder='Search by card name'/>
             </label>
             <button type="submit">Search by name</button>
-            <button type="button" onClick={handleReset}>
-              Reset Cards
-            </button>
           </form>
 
           {/* Search by Archetype form*/}
           <form onSubmit={handleClickArchetype}>
             <label>
               <select id="archetype" name="archetypes">
+                <option value='search-archetypes'>Search by Archetype</option>
                 {
                   archetypesForForms.sort().map( arche =>{
                     return(
@@ -157,6 +155,7 @@ export default function CardList(){
           <form onSubmit={handleClickCardType}>
             <label>
               <select id='type' name='type'>
+                <option value='search-card-type'>Search by Card Type</option>
                 {
                   typesForForms.sort().map( type =>{
                     return(
@@ -169,9 +168,13 @@ export default function CardList(){
             <button>Search by type</button>
           </form>
 
+          <button type="button" onClick={handleReset}>
+              Reset Cards
+          </button>
+
         </div>
 
-        <div className="containerCards">
+        <div className="containerCards to-center">
           {searchedCards.length > 0 &&
             searchedCards.slice(0, loadValue).map((card, idx) => {
               return (

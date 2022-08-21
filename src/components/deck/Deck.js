@@ -1,13 +1,15 @@
 import { useContext } from "react";
 import DeckContext from "../../context/DeckContext";
 import { Link } from "react-router-dom";
-import Card from "../Card/Card";
 
 export default function Deck() {
   const { deck, deleteFromDeck } = useContext(DeckContext);
   return (
     <div>
-      <h2>I'm deck</h2>
+      <div className="deck-title flex-column justify-center align-items-center">
+        <h1>Your deck:</h1>
+        <h3>Total cards in deck: {deck.length}</h3>
+      </div>
       <div className="containerCards">
         {deck.map((card, idx) => {
           return (

@@ -10,9 +10,6 @@ export default function Card( {card, idx} ) {
     <div className="card" key={idx}>
 
       <img src={`${card.card_images[0].image_url}`} alt="Card" />
-      {/* <div>
-        <p>{card.desc}</p>
-      </div> */}
       <div>
         <h4>{card.name}</h4>
         <button>
