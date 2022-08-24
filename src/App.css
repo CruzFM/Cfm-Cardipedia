@@ -200,6 +200,13 @@ body{
 
 .loaderButton{
   width: 100%;
+  padding: 1rem 1.2rem;
+  border: none;
+  background-color: rgb(42, 42, 126);
+  color: white;
+}
+.loaderButton:hover{
+  background-color: rgb(90, 90, 150);
 }
 
 header{
@@ -243,4 +250,27 @@ input[type=text] {
 select{
   padding: 0.5rem 1rem;
   width: 60%;
+  border-radius: 5px;
 }
+
+.searchBars{
+  grid-template-columns: 1fr 0.1fr;
+  align-items: center;
+  gap: 0px;
+}
+
+.searchBars > label > input,
+.searchBars > label > select{
+  width: 100%;
+}
+
+.searchIcon{
+  width: 50px;
+  background-color: rgb(192, 207, 228);
+  border-radius: 5px;
+}
+
+.searchIcon:hover{
+  background-color: rgb(99, 99, 199);
+}
+

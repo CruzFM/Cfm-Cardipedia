@@ -8,6 +8,9 @@ import { Link } from 'react-router-dom';
 import DeckContext from '../../context/DeckContext';
 import Card from '../Card/Card';
 
+//images
+import SearchIcon from '../../images/search.png'
+
 export default function CardList(){
     
     //------The cards displayed by default due to the API call
@@ -114,60 +117,62 @@ export default function CardList(){
 
       console.log(newCards);
     };
-    
-  
-    //---------------Push card to Deck--------------
-
-    const { deck, handleAddToDeck } = useContext( DeckContext)
 
     return (
       <>
         <div className="App flex-column justify-center align-items-center to-center">
           <h2>Card pool</h2>
+          <div className='to-center'>
+            {/* Search by Name form*/}
+            <form onSubmit={handleClick} className='grid searchBars'>
+              <label>
+                <input type="text" name="name" placeholder='Search by card name'/>
+              </label>
+              <button type="submit" className='searchIcon'>
+                <img src={SearchIcon} alt='search'/>
+              </button>
+            </form>
 
-          {/* Search by Name form*/}
-          <form onSubmit={handleClick}>
-            <label>
-              <input type="text" name="name" placeholder='Search by card name'/>
-            </label>
-            <button type="submit">Search by name</button>
-          </form>
+            {/* Search by Archetype form*/}
+            <form onSubmit={handleClickArchetype} className='grid searchBars'>
+              <label>
+                <select id="archetype" name="archetypes">
+                  <option value='search-archetypes'>Search by Archetype</option>
+                  {
+                    archetypesForForms.sort().map( arche =>{
+                      return(
+                        <option value={ `${arche}` }>{arche}</option>
+                      )
+                    })
+                  }
+                </select>
+              </label>
+              <button type="submit" className='searchIcon'>
+                <img src={SearchIcon} alt='search'/>
+              </button>
+            </form>
 
-          {/* Search by Archetype form*/}
-          <form onSubmit={handleClickArchetype}>
-            <label>
-              <select id="archetype" name="archetypes">
-                <option value='search-archetypes'>Search by Archetype</option>
-                {
-                  archetypesForForms.sort().map( arche =>{
-                    return(
-                      <option value={ `${arche}` }>{arche}</option>
-                    )
-                  })
+            {/* Search by Card Type form*/}
+            <form onSubmit={handleClickCardType} className='grid searchBars'>
+              <label>
+                <select id='type' name='type'>
+                  <option value='search-card-type'>Search by Card Type</option>
+                  {
+                    typesForForms.sort().map( type =>{
+                      return(
+                        <option value={ `${type}` }>{type}</option>
+                      )
+                    })
+                  }
+                </select>
+              </label>
+              <button className='searchIcon'>
+                <img src={SearchIcon} alt='search'/>
+              </button>
+            </form>
+          </div>
 
-                }
-              </select>
-            </label>
-            <button type="submit">Search by archetype</button>
-          </form>
-
-          {/* Search by Card Type form*/}
-          <form onSubmit={handleClickCardType}>
-            <label>
-              <select id='type' name='type'>
-                <option value='search-card-type'>Search by Card Type</option>
-                {
-                  typesForForms.sort().map( type =>{
-                    return(
-                      <option value={ `${type}` }>{type}</option>
-                    )
-                  })
-                }
-              </select>
-            </label>
-            <button>Search by type</button>
-          </form>
-
+          {/* RESET BUTTON */}
           <button type="button" onClick={handleReset}>
               Reset Cards
           </button>
