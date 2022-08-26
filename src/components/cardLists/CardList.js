@@ -173,11 +173,20 @@ export default function CardList(){
           </div>
 
           {/* RESET BUTTON */}
-          <button type="button" onClick={handleReset}>
+          <button type="button" onClick={handleReset} className='bn632-hover bn28'>
               Reset Cards
           </button>
 
         </div>
+
+        {cards.length < 1 && 
+          <div className='flex justify-center'>
+            <div class="loading">
+                <div class="d1"></div>
+                <div class="d2"></div>
+            </div>
+          </div>
+        }
 
         <div className="containerCards to-center">
           {searchedCards.length > 0 &&

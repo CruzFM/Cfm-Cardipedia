@@ -33,10 +33,10 @@ export default function Details(){
 
     return(
         <div>
-           {Object.keys(card).length < 1 && <h1>ahora qué carajo pasa?</h1>}
+           {Object.keys(card).length < 1 && <h1 className='flex justify-center'>Loading...</h1>}
            {Object.keys(card).length > 0  && 
            
-           <div className='flex'>
+           <div className='grid details to-center'>
 
                 <div>  
                     <img src={`${card.card_images[0].image_url}`} alt='card' />

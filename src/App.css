@@ -97,6 +97,10 @@ body{
   gap: var(--gap, 1rem);
 }
 
+.place-items-center{
+  place-items: center;
+}
+
 .container{
   padding-inline: 2em;
   margin-inline: auto;
@@ -268,9 +272,107 @@ select{
   width: 50px;
   background-color: rgb(192, 207, 228);
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .searchIcon:hover{
   background-color: rgb(99, 99, 199);
 }
 
+.details{
+  grid-template-columns: repeat(2, 1fr)
+}
+
+
+/* -----LOADER------ */
+/* From uiverse.io by @Ali-Tahmazi99 */
+.loading {
+  width: 60px;
+  height: 60px;
+  position: relative;
+}
+
+.d1 , .d2 {
+  border: 5px solid #6c757d;
+  border-radius: 50px;
+}
+
+.loading .d1 {
+  width: 55px;
+  height: 55px;
+  position: absolute;
+  border-left-color: transparent;
+  animation: load161 1s linear infinite;
+}
+
+.loading .d2 {
+  width: 40px;
+  height: 40px;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  margin: 7.5px;
+  animation: load2812 1.5s linear infinite;
+}
+
+@keyframes load161 {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes load2812 {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+
+/* -----RESET BUTTON------ */
+.bn632-hover {
+  width: 160px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  margin: 20px;
+  height: 55px;
+  text-align:center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.bn632-hover:hover {
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.bn632-hover:focus {
+  outline: none;
+}
+
+.bn632-hover.bn28 {
+  background-image: linear-gradient(
+    to right,
+    #eb3941,
+    #f15e64,
+    #e14e53,
+    #e2373f
+  );
+  box-shadow: 0 5px 15px rgba(242, 97, 103, 0.4);
+}

@@ -10,7 +10,7 @@ export default function Deck() {
         <h1>Your deck:</h1>
         <h3>Total cards in deck: {deck.length}</h3>
       </div>
-      <div className="containerCards">
+      <div className="containerCards to-center">
         {deck.map((card, idx) => {
           return (
             <div className="card" key={idx}>
