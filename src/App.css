@@ -65,6 +65,16 @@ body{
   font-family: 'Mulish', sans-serif;
 }
 
+footer{
+  min-width: 100%;
+  background-color: rgb(32, 44, 68);
+  color: white;
+  height: 25vh;
+}
+
+footer >div{
+  height: 100%;
+}
 /*-------------------*/
 /* Custom Properties */
 /*-------------------*/
@@ -273,7 +283,7 @@ header{
 }
 
 .home{
-  height: 70vh;
+  height: 80vh;
 }
 
 .deck-title{
