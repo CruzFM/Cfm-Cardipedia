@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import DeckContext from "../../context/DeckContext";
 import { Link } from "react-router-dom";
+import deleteImage from '../../images/delete.png';
 
 export default function Deck() {
   const { deck, deleteFromDeck } = useContext(DeckContext);
@@ -17,11 +18,13 @@ export default function Deck() {
               <img src={`${card.card_images[0].image_url}`} alt="Card" />
               <div>
                 <h4>{card.name}</h4>
+              </div>
+              <div className="flex justify-space-between align-items-center"> 
                 <button>
                   <Link to={`/details/${card.id}`}>Details</Link>
                 </button>
-                <button onClick={() => deleteFromDeck(deck, card)}>
-                  Delete me!
+                <button onClick={() => deleteFromDeck(deck, card)} className='delete-btn'>
+                  <img src={deleteImage} alt='delete-card'/>
                 </button>
               </div>
             </div>

@@ -8,14 +8,15 @@ export default function Card( {card, idx} ) {
 
   return (
     <div className="card" key={idx}>
-
       <img src={`${card.card_images[0].image_url}`} alt="Card" />
       <div>
-        <h4>{card.name}</h4>
+        <h4 className='text-center'>{card.name}</h4>
+      </div>
+      <div className='flex justify-space-between'>
         <button>
           <Link to={`/details/${card.id}`}>Details</Link>
         </button>
-        <button onClick={() => handleAddToDeck(card)}>
+        <button onClick={() => handleAddToDeck(card)} className='to-deck-btn'>
           To Deck
         </button>
       </div>

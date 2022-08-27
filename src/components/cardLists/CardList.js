@@ -125,16 +125,19 @@ export default function CardList(){
           <div className='to-center'>
             {/* Search by Name form*/}
             <form onSubmit={handleClick} className='grid searchBars'>
-              <label>
-                <input type="text" name="name" placeholder='Search by card name'/>
-              </label>
               <button type="submit" className='searchIcon'>
                 <img src={SearchIcon} alt='search'/>
               </button>
+              <label>
+                <input type="text" name="name" placeholder='Search by card name'/>
+              </label>
             </form>
 
             {/* Search by Archetype form*/}
             <form onSubmit={handleClickArchetype} className='grid searchBars'>
+              <button type="submit" className='searchIcon'>
+                <img src={SearchIcon} alt='search'/>
+              </button>
               <label>
                 <select id="archetype" name="archetypes">
                   <option value='search-archetypes'>Search by Archetype</option>
@@ -147,13 +150,13 @@ export default function CardList(){
                   }
                 </select>
               </label>
-              <button type="submit" className='searchIcon'>
-                <img src={SearchIcon} alt='search'/>
-              </button>
             </form>
 
             {/* Search by Card Type form*/}
             <form onSubmit={handleClickCardType} className='grid searchBars'>
+              <button className='searchIcon'>
+                <img src={SearchIcon} alt='search'/>
+              </button>
               <label>
                 <select id='type' name='type'>
                   <option value='search-card-type'>Search by Card Type</option>
@@ -166,9 +169,6 @@ export default function CardList(){
                   }
                 </select>
               </label>
-              <button className='searchIcon'>
-                <img src={SearchIcon} alt='search'/>
-              </button>
             </form>
           </div>
 
