@@ -8,9 +8,19 @@ export default function Deck() {
   return (
     <div>
       <div className="deck-title flex-column justify-center align-items-center">
-        <h1>Your deck:</h1>
+        <h2>Your deck:</h2>
         <h3>Total cards in deck: {deck.length}</h3>
       </div>
+
+      {deck.length < 1 && (
+        <div className="deck--msg to-center">
+          <h2 className="text-center">
+            You have no cards added, visit our card pool and choose your
+            favorites!
+          </h2>
+        </div>
+      )}
+
       <div className="containerCards to-center">
         {deck.map((card, idx) => {
           return (
@@ -19,12 +29,15 @@ export default function Deck() {
               <div>
                 <h4>{card.name}</h4>
               </div>
-              <div className="flex justify-space-between align-items-center"> 
+              <div className="flex justify-space-between align-items-center">
                 <button>
                   <Link to={`/details/${card.id}`}>Details</Link>
                 </button>
-                <button onClick={() => deleteFromDeck(deck, card)} className='delete-btn'>
-                  <img src={deleteImage} alt='delete-card'/>
+                <button
+                  onClick={() => deleteFromDeck(deck, card)}
+                  className="delete-btn"
+                >
+                  <img src={deleteImage} alt="delete-card" />
                 </button>
               </div>
             </div>

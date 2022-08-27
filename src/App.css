@@ -70,6 +70,7 @@ footer{
   background-color: rgb(32, 44, 68);
   color: white;
   height: 25vh;
+  margin-top: 2rem;
 }
 
 footer >div{
@@ -338,7 +339,9 @@ select{
   grid-template-columns: repeat(2, 1fr)
 }
 
-
+.deck--msg{
+  height: 40vh;
+}
 /* -----LOADER------ */
 /* From uiverse.io by @Ali-Tahmazi99 */
 .loading {
