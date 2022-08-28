@@ -24,7 +24,6 @@ export default function Details(){
         axios.get(endPoint)
             .then(res =>{
                 const [apiData] = res.data.data;
-                // console.log(apiData);
                 setCard(apiData);
             })
     }, [])

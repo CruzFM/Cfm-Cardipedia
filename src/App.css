@@ -285,6 +285,11 @@ header{
   padding: 1rem;
 }
 
+.navbar > ul > li:hover{
+  background-color: rgb(96, 96, 177);
+  color: white;
+}
+
 .home{
   height: 80vh;
 }
