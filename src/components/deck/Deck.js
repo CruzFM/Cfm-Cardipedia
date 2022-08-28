@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import deleteImage from '../../images/delete.png';
 
 export default function Deck() {
-  const { deck, deleteFromDeck } = useContext(DeckContext);
+  const { deck, deleteFromDeck, extraDeck, setDeck, setExtraDeck } = useContext(DeckContext);
   return (
     <div>
       <div className="deck-title flex-column justify-center align-items-center">
         <h2>Your deck:</h2>
-        <h3>Total cards in deck: {deck.length}</h3>
+        <h3>Total cards in Main Deck: {deck.length}</h3>
       </div>
 
       {deck.length < 1 && (
@@ -34,7 +34,7 @@ export default function Deck() {
                   <Link to={`/details/${card.id}`}>Details</Link>
                 </button>
                 <button
-                  onClick={() => deleteFromDeck(deck, card)}
+                  onClick={() => deleteFromDeck(deck, card, setDeck)}
                   className="delete-btn"
                 >
                   <img src={deleteImage} alt="delete-card" />
@@ -44,9 +44,38 @@ export default function Deck() {
           );
         })}
       </div>
-      {/* <aside>
-        Let's see what happens
-      </aside> */}
+      <div>
+
+      {  extraDeck.length > 0 &&
+        <div className="deck-title flex-column justify-center align-items-center">
+          <h2 className="text-center">Extra Deck</h2>
+          <h3>Total cards in Extra-deck: {extraDeck.length}</h3>
+        </div>}
+
+        <div className="containerCards to-center">
+        {extraDeck.map((card, idx) => {
+            return (
+              <div className="card" key={idx}>
+                <img src={`${card.card_images[0].image_url}`} alt="Card" />
+                <div>
+                  <h4 className="text-center">{card.name}</h4>
+                </div>
+                <div className="flex justify-space-between align-items-center">
+                  <button>
+                    <Link to={`/details/${card.id}`}>Details</Link>
+                  </button>
+                  <button
+                    onClick={() => deleteFromDeck(extraDeck, card, setExtraDeck)}
+                    className="delete-btn"
+                  >
+                    <img src={deleteImage} alt="delete-card" />
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }
