@@ -27,7 +27,7 @@ export default function Deck() {
             <div className="card" key={idx}>
               <img src={`${card.card_images[0].image_url}`} alt="Card" />
               <div>
-                <h4>{card.name}</h4>
+                <h4 className="text-center">{card.name}</h4>
               </div>
               <div className="flex justify-space-between align-items-center">
                 <button>

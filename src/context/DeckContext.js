@@ -11,7 +11,7 @@ export function DeckProvider ( { children } ) {
     const handleAddToDeck = (cardToAdd) => {
         // let sameCardsInDeck = deck.filter( item => item === cardToAdd)
         // console.log(sameCardsInDeck)
-        // console.log(deck)
+        console.log(deck)
         
 
         // TO DO: probar con mover la funcion de chequeo de si la carta está en deck al scope de Declkist

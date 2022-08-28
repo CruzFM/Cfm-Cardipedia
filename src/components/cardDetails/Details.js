@@ -53,7 +53,7 @@ export default function Details(){
               <ul>
                 <li>Card type: {card.type}</li>
                 <li>Race: {card.race}</li>
-                <li>Archetype: {card.archetype}</li>
+                <li>Archetype: {!card.archetype === true ? 'none' : card.archetype}</li>
               </ul>
               <p>{card.desc}</p>
               <div>

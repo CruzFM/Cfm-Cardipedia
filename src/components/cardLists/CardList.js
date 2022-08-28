@@ -181,9 +181,9 @@ export default function CardList(){
 
         {cards.length < 1 && 
           <div className='flex justify-center'>
-            <div class="loading">
-                <div class="d1"></div>
-                <div class="d2"></div>
+            <div className="loading">
+                <div className="d1"></div>
+                <div className="d2"></div>
             </div>
           </div>
         }
