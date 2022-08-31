@@ -12,7 +12,7 @@ export default function Deck() {
         <h3>Total cards in Main Deck: {deck.length}</h3>
       </div>
 
-      {deck.length < 1 && (
+      {deck.length < 1 && extraDeck.length < 1 && (
         <div className="deck--msg to-center">
           <h2 className="text-center">
             You have no cards added, visit our card pool and choose your

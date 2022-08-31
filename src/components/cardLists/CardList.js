@@ -7,6 +7,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import DeckContext from '../../context/DeckContext';
 import Card from '../Card/Card';
+import Swal from 'sweetalert2';
 
 //images
 import SearchIcon from '../../images/search.png'
@@ -27,9 +28,9 @@ export default function CardList(){
         axios.get(endPoint)
         .then(res => {
           let apiData = res.data.data
-          // console.log(apiData)
           setCards(apiData) 
         });
+        
     
     },[]);
 
@@ -47,7 +48,19 @@ export default function CardList(){
         let newCards = cards.filter( (card) =>  card.name.match(serchRegEx) )
         setSearchedCards(newCards);
         setLoadValue(10);
-        // console.log(newCards);
+        if(newCards.length < 1){
+          Swal.fire({
+            title: 'Cards not found',
+            text: 'Please, try with another name.',
+            icon: 'error'
+          })
+        } else {
+          Swal.fire({
+            title: `You searched for ${cardName}`,
+            text: 'You may see the results in the card pool.',
+            icon: 'success'
+          })
+        }
     };
 
     //---------------To reset both search and value --------------
@@ -90,8 +103,11 @@ export default function CardList(){
 
       setSearchedCards(newCards);
       setLoadValue(10);
-
-      // console.log(newCards);
+      Swal.fire({
+        title: `You searched for ${archeValue} archetype`,
+        text: 'You may see the results in the card pool',
+        icon: 'sucess'
+      })
     };
 
     //---------------To search for CARD TYPE --------------
@@ -114,8 +130,11 @@ export default function CardList(){
 
       setSearchedCards(newCards);
       setLoadValue(10);
-
-      console.log(newCards);
+      Swal.fire({
+        title: `You searched for ${cardTypeValue} cards`,
+        text: 'You may see the results in the card pool.',
+        icon: 'sucess'
+      })
     };
 
     return (
