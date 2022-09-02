@@ -4,21 +4,20 @@ import Swal from 'sweetalert2';
 const DeckContext = createContext();
 
 export function DeckProvider ( { children } ) {
-
+    //main deck
     const [deck, setDeck] = useState([]);
 
-    //testing: extra deck
+    //extra deck
     const [extraDeck, setExtraDeck] = useState([]);
 
     const handleAddToDeck = (cardToAdd) => {
       let sameCardsInDeck = deck.filter( item => item.id === cardToAdd.id)
       let sameCardsExtraDeck = extraDeck.filter( item => item.id === cardToAdd.id)
       console.log(sameCardsInDeck);
-      //   console.log(deck);
       if(sameCardsInDeck.length >= 3 || sameCardsExtraDeck.length >= 3){
         Swal.fire({
           title: 'Card could not be added to the deck',
-          text: 'There are three (3) copies of that card already in the deck',
+          text: 'There are three (3) copies of that card already in the deck.',
           icon: 'error'
         })
       } else {
@@ -47,20 +46,14 @@ export function DeckProvider ( { children } ) {
           });
         }
       }
-
-      // TO DO: probar con mover la funcion de chequeo de si la carta está en deck al scope de Declkist
-      //Quizás eso sea lo que hace que en cada renderizado vuelva a ver los arrays vacíos.
     }
 
     const deleteFromDeck = (array, toDelete, setState) =>{
         let cardIndex = array.indexOf(toDelete)
-        // console.log(cardIndex)
         let toConcatOne = array.slice(0, cardIndex)
         let toConcatTwo = array.slice(cardIndex + 1)
         let newDeck = toConcatOne.concat(toConcatTwo)
-        // console.log(newDeck)
         setState(newDeck)
-        // console.log(deck)
       }
 
 

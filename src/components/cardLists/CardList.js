@@ -105,7 +105,7 @@ export default function CardList(){
       setLoadValue(10);
       Swal.fire({
         title: `You searched for ${archeValue} archetype`,
-        text: 'You may see the results in the card pool',
+        text: 'You may see the results in the card pool.',
         icon: 'sucess'
       })
     };
@@ -139,7 +139,7 @@ export default function CardList(){
 
     return (
       <>
-        <div className="App flex-column justify-center align-items-center to-center">
+        <div className="flex-column justify-center align-items-center to-center">
           <h2>Card pool</h2>
           <div className='to-center'>
             {/* Search by Name form*/}

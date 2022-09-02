@@ -294,6 +294,32 @@ header{
   height: 80vh;
 }
 
+/* .home--images{
+  border: 1px solid black;
+} */
+
+.home--images > div> a > img {
+  width:  300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.home--images_cards > div{
+  background-color: black;
+  color: white;
+  height: 60px;
+  font-size: 1.5em;
+  padding: 12px 20px;
+}
+
+.home--images_deck > div{
+  background-color: black;
+  color: white;
+  height: 60px;
+  font-size: 1.5em;
+  padding: 12px 20px;
+}
+
 .deck-title{
   height: 20vh;
 }
