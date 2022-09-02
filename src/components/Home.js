@@ -14,7 +14,6 @@ export default function Home(){
               <img src={cyberNachter} alt="Navigate to Cards" />
             </Link>
             <div>Card pool</div>
-
           </div>
           <div className='home--images_deck'>
             <Link to='/deck'>

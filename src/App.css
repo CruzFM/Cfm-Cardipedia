@@ -294,14 +294,26 @@ header{
   height: 80vh;
 }
 
-/* .home--images{
+.home--images{
   border: 1px solid black;
-} */
+  padding: 2em 0;
+}
 
 .home--images > div> a > img {
   width:  300px;
   height: 300px;
   object-fit: cover;
+}
+
+.home--images > div{
+  animation: fadeIn 3s;
+  position: relative;
+  top: 0;
+  transition: top ease 0.5s;
+}
+
+.home--images > div:hover{
+  top: -10px;
 }
 
 .home--images_cards > div{
@@ -310,6 +322,7 @@ header{
   height: 60px;
   font-size: 1.5em;
   padding: 12px 20px;
+
 }
 
 .home--images_deck > div{
@@ -318,6 +331,12 @@ header{
   height: 60px;
   font-size: 1.5em;
   padding: 12px 20px;
+  animation: fadeIn 5s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .deck-title{
