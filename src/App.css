@@ -25,10 +25,16 @@ h5,
 h6,
 p,
 figure,
-picture{
+picture,
+ul{
   margin: 0;
 }
 
+/* Reset padding*/
+
+ul{
+  padding: 0;
+}
 /*Set up the body*/
 body{
   line-height: 1.5;
@@ -391,7 +397,7 @@ select{
 }
 
 .deck--msg{
-  height: 40vh;
+  height: 60vh;
 }
 /* -----LOADER------ */
 /* From uiverse.io by @Ali-Tahmazi99 */
@@ -486,11 +492,59 @@ select{
   box-shadow: 0 5px 15px rgba(242, 97, 103, 0.4);
 }
 
+.border-black{
+  border: 1px solid black;
+}
+
+.details--typeRaceArche{
+  grid-template-columns: repeat(3, 1fr);
+  padding: 1.2em 0;
+}
+
+.details--typeRaceArche > li{
+  padding: 0.8em 1em;
+  background-color: rgb(216, 183, 92);
+  /* width: 100%; */
+}
+
+.details--description{
+  padding: 1.2em 0;
+}
+
+.details--pricing{
+  padding-bottom: 1.2em;
+}
+
+.details--pricing > ul{
+  padding-top: 1em;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.details--pricing > ul > li{
+  background-color: rgb(53, 122, 80);
+  padding: 0.8em 1em;
+  color: white;
+}
+
+.details--toDeck{
+  padding: 1.2em 2em;
+}
+
 @media only screen and (max-width: 768px){
   .details{
     display: flex;
     flex-direction: column;
     gap: 1rem;
     justify-content: center;
+  }
+  .details--typeRaceArche{
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1fr;
+  }
+
+  .details--pricing > ul{
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: 1fr;
   }
 }

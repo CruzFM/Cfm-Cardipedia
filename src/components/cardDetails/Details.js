@@ -43,21 +43,28 @@ export default function Details(){
 
         {Object.keys(card).length > 0 && (
           <div className="grid details to-center">
+            {/*--- CARD IMAGE---*/}
             <div>
               <img src={`${card.card_images[0].image_url}`} alt="card" />
             </div>
-            <div>
-              <h2>{card.name}</h2>
 
-              <ul>
+            {/*--- DETAILS---*/}
+            <div>
+
+              {/*--- DETAILS: NAME - TYPE - RACE - ARCHETYPE ---*/}
+              <h2>{card.name}</h2>
+              <ul className='grid details--typeRaceArche'>
                 <li>Card type: {card.type}</li>
                 <li>Race: {card.race}</li>
                 <li>Archetype: {!card.archetype === true ? 'none' : card.archetype}</li>
               </ul>
-              <p>{card.desc}</p>
-              <div>
+              <p className='details--description'>{card.desc}</p>
+              
+
+              {/*--- DETAILS: PRICING ACCORDING TO DIFFERENT SOURCES ---*/}
+              <div className='details--pricing'>
                 <h3>Pricing</h3>
-                <ul>
+                <ul className='grid'>
                   <li>Amazon: $ {card.card_prices[0].amazon_price}</li>
                   <li>Cardmarket: $ {card.card_prices[0].cardmarket_price}</li>
                   <li>
@@ -67,9 +74,11 @@ export default function Details(){
                   <li>TCG Player: $ {card.card_prices[0].tcgplayer_price}</li>
                 </ul>
               </div>
-              <button onClick={() => handleAddToDeck(card)} className='to-deck-btn'>
+
+              {/*--- BUTTON TO ADD CARD TO DECK ---*/}
+              <button onClick={() => handleAddToDeck(card)} className='to-deck-btn details--toDeck'>
                 To deck
-                </button>
+              </button>
             </div>
           </div>
         )}

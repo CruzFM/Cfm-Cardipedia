@@ -22,11 +22,6 @@ export default function Home(){
             <div>Deck</div>
           </div>
         </div>
-
-
-            {/* <h3 className='text-center'>Where you can seach your favorite cards from a vast database provided by YGOpro</h3> */}
-            {/* <Link to='/cards/'>To Card pool</Link>
-                    <Link to='/deck'>To deck</Link> */}
       </div>
     );
 };
