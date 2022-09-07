@@ -160,15 +160,20 @@ footer >div{
   justify-content: space-around;
 }
 
+
+.text-center{
+  text-align: center;
+}
+
+.text-justify{
+  text-align: justify;
+}
 /* to center content */
 .to-center{
   margin: 0 auto;
   width: 90%;
 }
 
-.text-center{
-  text-align: center;
-}
 /* typography */
 
 .ff-serif { font-family: var(--ff-serif); } 
@@ -503,8 +508,8 @@ select{
 
 .details--typeRaceArche > li{
   padding: 0.8em 1em;
-  background-color: rgb(216, 183, 92);
-  /* width: 100%; */
+  background-color: rgb(189, 161, 83);
+  color: white;
 }
 
 .details--description{

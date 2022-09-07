@@ -58,7 +58,7 @@ export default function Details(){
                 <li>Race: {card.race}</li>
                 <li>Archetype: {!card.archetype === true ? 'none' : card.archetype}</li>
               </ul>
-              <p className='details--description'>{card.desc}</p>
+              <p className='details--description text-justify'>{card.desc}</p>
               
 
               {/*--- DETAILS: PRICING ACCORDING TO DIFFERENT SOURCES ---*/}
